@@ -98,3 +98,5 @@
              y = "Mean annual median MHW Cum Int") +
         theme_bw()
     ggsave("Historical MHW CI vs latitude.pdf", paper = "A4r")
+    
+# Goto Kelp_10_Check_for_ice.R

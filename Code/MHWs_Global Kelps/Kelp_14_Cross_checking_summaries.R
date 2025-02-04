@@ -67,7 +67,7 @@
   walk(scenarios, collect_scenario)  
   
   
-  
+# Goto Kelp_15_Outputs_per_pixel_by_period.R
   
   
   

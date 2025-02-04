@@ -1,4 +1,4 @@
-# Kelp Step 13: Output the fincal data, just to be sure that we're all on the same page
+# Kelp Step 13: Output the final data, just to be sure that we're all on the same page
   # Written by Dave Schoeman (david.schoeman@gmail.com)
     # January 2024
 
@@ -11,13 +11,12 @@
 # Folders ----------------------------------------------------------------------
 
   input_folder1 <- "Final_CumInt_Summary_Outputs"
-  input_folder2 <- "Final_CumInt_Summary_Outputs_Arg"
   output_folder <- make_folder("Final_Output_Data")
 
 
 # Data --------------------------------------------------------------------
 
-  files <- c(dir(input_folder1, full.names = TRUE), dir(input_folder2, full.names = TRUE))
+  files <- dir(input_folder1, full.names = TRUE)
   bits <- files %>% 
     basename() %>% 
     str_split("_", simplify = TRUE) %>% 
@@ -52,8 +51,7 @@
     }
   walk2(combos$scenarios, combos$metrics, collect_and_combine_data)  
   
-  
-  
+# Goto Kelp_14_Cross_checking_summaries.R
   
   
   

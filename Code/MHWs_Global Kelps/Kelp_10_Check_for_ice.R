@@ -37,4 +37,5 @@
   ice_test %>% 
     map(unlist) %>% 
     map(unique)
-  
+
+# Goto Kelp_11_Weights_for_percentage_land.R 

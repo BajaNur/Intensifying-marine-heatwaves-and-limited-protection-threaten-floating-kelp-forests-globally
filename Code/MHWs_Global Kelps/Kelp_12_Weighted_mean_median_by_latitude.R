@@ -11,13 +11,12 @@
 # Folders ----------------------------------------------------------------------
 
   input_folder1 <- "Final_CumInt_Summary_Outputs"
-  input_folder2 <- "Final_CumInt_Summary_Outputs_Arg"
   output_folder <- make_folder("MHW_by_lat_period")
 
 
 # Data --------------------------------------------------------------------
 
-  files <- c(dir(input_folder1, full.names = TRUE), dir(input_folder2, full.names = TRUE)) %>% 
+  files <- dir(input_folder1, full.names = TRUE) %>% 
     str_subset("_median.csv")
   scenarios <- files %>% 
     basename() %>% 
@@ -59,7 +58,8 @@
       write_csv(out_name)
     }
   walk(scenarios, collect_scenario)  
-  
+
+# Goto Kelp_13_Output_final_data.R
   
   
   

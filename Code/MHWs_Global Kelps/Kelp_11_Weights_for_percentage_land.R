@@ -1,4 +1,4 @@
-# Kelp Step 11: Compute weights for each 0.25º grid square to represent %land
+# Kelp Step 11: Compute weights for each 0.25º grid square to represent %land for plot by latitude
   # Written by Dave Schoeman (david.schoeman@gmail.com)
     # December 2023
 
@@ -11,14 +11,13 @@
 # Input data -------------------------------------------------------------------
 
   xy <- read_rds("coords.rda")
-  xy_arg <- read_rds("coords_arg.rda")
   sea <- st_read("/Users/davidschoeman/Dropbox/Documents/ShapeFiles/Ocean_hi_res/ne_10m_ocean.shp") %>% 
     st_make_valid()
 
 
 # For each coordinate make a fine-scale rast, and compute % sea ----------------
 
-  xy <- bind_rows(xy, xy_arg) %>% 
+  xy <- xy %>% 
     distinct() %>% 
     transpose()
   percent_sea <- function(cc){
@@ -38,4 +37,6 @@
     bind_rows() %>% 
     mutate(percent_sea = 1 - percent_land)
   write_rds(out, "land_sea_weights.rds")
+  
+# Goto Kelp_12_Weighted_mean_median_by_latitude.R
   
